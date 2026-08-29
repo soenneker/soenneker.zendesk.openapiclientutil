@@ -2,11 +2,41 @@
 [![](https://img.shields.io/github/actions/workflow/status/soenneker/soenneker.zendesk.openapiclientutil/publish-package.yml?style=for-the-badge)](https://github.com/soenneker/soenneker.zendesk.openapiclientutil/actions/workflows/publish-package.yml)
 [![](https://img.shields.io/nuget/dt/soenneker.zendesk.openapiclientutil.svg?style=for-the-badge)](https://www.nuget.org/packages/soenneker.zendesk.openapiclientutil/)
 
-# ![](https://user-images.githubusercontent.com/4441470/224455560-91ed3ee7-f510-4041-a8d2-3fc093025112.png) Soenneker.Zendesk.OpenApiClientUtil
-### A thread-safe utility for obtaining Zendesk's OpenApiClient singleton.
+# Soenneker.Zendesk.OpenApiClientUtil
 
-## Installation
+Exposes a cached OpenAPI client instance.
 
-```
+## Install
+
+```bash
 dotnet add package Soenneker.Zendesk.OpenApiClientUtil
 ```
+
+## Quick start
+
+```csharp
+using Soenneker.Zendesk.OpenApiClientUtil.Registrars;
+using Microsoft.Extensions.DependencyInjection;
+
+var services = new ServiceCollection();
+var result = services.AddZendeskOpenApiClientUtilAsSingleton();
+```
+
+Adds `ZendeskOpenApiClientUtil` as a singleton service.
+
+## What you get
+
+- `IZendeskOpenApiClientUtil` — Exposes a cached OpenAPI client instance.
+- `ZendeskOpenApiClientUtilRegistrar` — Registers the OpenAPI client utility for dependency injection.
+
+## API at a glance
+
+| API | What it does | Result / important behavior |
+| --- | --- | --- |
+| `ZendeskOpenApiClientUtilRegistrar.AddZendeskOpenApiClientUtilAsSingleton(services)` | Adds `ZendeskOpenApiClientUtil` as a singleton service. | The same service collection, so additional registrations can be chained. |
+| `ZendeskOpenApiClientUtilRegistrar.AddZendeskOpenApiClientUtilAsScoped(services)` | Adds `ZendeskOpenApiClientUtil` as a scoped service. | The same service collection, so additional registrations can be chained. |
+
+## Practical notes
+
+- Reuse the registered client instead of constructing one per operation.
+- Dispose instances you own when their scope ends so held resources can be released.
