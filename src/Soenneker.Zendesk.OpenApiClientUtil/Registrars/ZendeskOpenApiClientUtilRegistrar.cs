@@ -13,6 +13,8 @@ public static class ZendeskOpenApiClientUtilRegistrar
     /// <summary>
     /// Adds <see cref="ZendeskOpenApiClientUtil"/> as a singleton service. <para/>
     /// </summary>
+    /// <param name="services">Service collection that receives the registration.</param>
+    /// <returns>The same service collection, so additional registrations can be chained.</returns>
     public static IServiceCollection AddZendeskOpenApiClientUtilAsSingleton(this IServiceCollection services)
     {
         services.AddZendeskOpenApiHttpClientAsSingleton()
@@ -24,6 +26,8 @@ public static class ZendeskOpenApiClientUtilRegistrar
     /// <summary>
     /// Adds <see cref="ZendeskOpenApiClientUtil"/> as a scoped service. <para/>
     /// </summary>
+    /// <param name="services">Service collection that receives the registration.</param>
+    /// <returns>The same service collection, so additional registrations can be chained.</returns>
     public static IServiceCollection AddZendeskOpenApiClientUtilAsScoped(this IServiceCollection services)
     {
         services.AddZendeskOpenApiHttpClientAsSingleton()
