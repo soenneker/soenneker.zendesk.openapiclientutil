@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 namespace Soenneker.Zendesk.OpenApiClientUtil.Abstract;
 
 /// <summary>
-/// Exposes a cached OpenAPI client instance.
+/// Provides a lazily created Zendesk OpenAPI client over the configured shared HTTP transport.
 /// </summary>
 public interface IZendeskOpenApiClientUtil: IDisposable, IAsyncDisposable
 {
     /// <summary>
-    /// Returns the configured zendesk OpenAPI Client used by the Zendesk OpenAPI Client.
+    /// Gets the cached Zendesk OpenAPI client.
     /// </summary>
     /// <param name="cancellationToken">Token used to cancel the operation.</param>
-    /// <returns>A task whose result is the requested zendesk OpenAPI Client.</returns>
+    /// <returns>The configured Zendesk OpenAPI client.</returns>
     ValueTask<ZendeskOpenApiClient> Get(CancellationToken cancellationToken = default);
 }

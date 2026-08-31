@@ -6,12 +6,12 @@ using Soenneker.Zendesk.OpenApiClientUtil.Abstract;
 namespace Soenneker.Zendesk.OpenApiClientUtil.Registrars;
 
 /// <summary>
-/// Registers the OpenAPI client utility for dependency injection.
+/// Registers the configured Zendesk OpenAPI client provider.
 /// </summary>
 public static class ZendeskOpenApiClientUtilRegistrar
 {
     /// <summary>
-    /// Adds <see cref="ZendeskOpenApiClientUtil"/> as a singleton service. <para/>
+    /// Adds <see cref="IZendeskOpenApiClientUtil"/> as a singleton service.
     /// </summary>
     /// <param name="services">Service collection that receives the registration.</param>
     /// <returns>The same service collection, so additional registrations can be chained.</returns>
@@ -24,7 +24,7 @@ public static class ZendeskOpenApiClientUtilRegistrar
     }
 
     /// <summary>
-    /// Adds <see cref="ZendeskOpenApiClientUtil"/> as a scoped service. <para/>
+    /// Adds <see cref="IZendeskOpenApiClientUtil"/> as a scoped service while retaining the singleton HTTP transport.
     /// </summary>
     /// <param name="services">Service collection that receives the registration.</param>
     /// <returns>The same service collection, so additional registrations can be chained.</returns>
