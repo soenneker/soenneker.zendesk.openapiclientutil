@@ -11,6 +11,7 @@ using Soenneker.Utils.AsyncSingleton;
 
 namespace Soenneker.Zendesk.OpenApiClientUtil;
 
+/// <inheritdoc cref="IZendeskOpenApiClientUtil" />
 public sealed class ZendeskOpenApiClientUtil : IZendeskOpenApiClientUtil
 {
     private readonly AsyncSingleton<ZendeskOpenApiClient> _client;
