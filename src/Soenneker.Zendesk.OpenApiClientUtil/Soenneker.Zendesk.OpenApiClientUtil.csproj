@@ -47,6 +47,6 @@
 
     <ItemGroup>
         <PackageReference Include="Soenneker.Zendesk.HttpClients" Version="11.0.94" />
-        <PackageReference Include="Soenneker.Zendesk.OpenApiClient" Version="11.0.65" />
+        <PackageReference Include="Soenneker.Zendesk.OpenApiClient" Version="11.0.66" />
     </ItemGroup>
 </Project>
